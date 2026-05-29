@@ -1,0 +1,52 @@
+/* Fundo geral */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #fff5f7;
+}
+
+/* Container dos cards */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+/* Card */
+.card {
+    width: 220px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+/* efeito hover */
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* imagem */
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+/* nome */
+.card h3 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+    color: #d63384;
+}
+
+/* descrição */
+.card p {
+    font-size: 14px;
+    padding: 0 10px 15px;
+    color: #555;
+}

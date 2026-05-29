@@ -1,0 +1,698 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ==========================================================================
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --marrom-escuro: #4A221A;
+    --marrom-medio: #6B3A2A;
+    --creme-claro: #F5E6C8;
+    --bege-quente: #D9B88F;
+    --vermelho-terracota: #C94B3C;
+    --branco-suave: #FFF8F0;
+    --sombra-suave: rgba(74, 34, 26, 0.08);
+    --transicao: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    background-color: var(--branco-suave);
+    color: var(--marrom-escuro);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1250px;
+    padding: 0 25px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* --- BOTÃO GLOBAL--- */
+.btn-principal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+    height: 52px;
+    background-color: var(--vermelho-terracota);
+    color: var(--branco-suave);
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(201, 75, 60, 0.25);
+    transition: var(--transicao);
+}
+
+.btn-principal:hover {
+    background-color: var(--marrom-escuro);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(74, 34, 26, 0.35);
+}
+
+/* ==========================================================================
+   CABEÇALHO & NAVEGAÇÃO
+   ========================================================================== */
+header {
+    background-color: rgba(74, 34, 26, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(245, 230, 200, 0.15);
+}
+
+header > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.img-logo {
+    width: auto;
+    height: 75px;
+    object-fit: contain;
+}
+
+header nav.menu-desktop ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 35px;
+}
+
+header nav.menu-desktop a {
+    color: var(--creme-claro);
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+header nav.menu-desktop a:hover,
+header nav.menu-desktop a.active {
+    color: var(--bege-quente);
+}
+
+header nav.menu-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--bege-quente);
+    transition: width 0.3s ease;
+}
+
+header nav.menu-desktop a:hover::after,
+header nav.menu-desktop a.active::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--branco-suave);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+   SEÇÃO HERO
+   ========================================================================== */
+section.hero {
+    background-color: var(--bege-quente);
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding-top: 110px;
+    padding-bottom: 60px;
+}
+
+.hero > .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero .img-hero {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero .img-hero img {
+    max-width: 100%;
+    width: 380px;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(74, 34, 26, 0.2);
+}
+
+.hero .text-hero {
+    flex: 1.2;
+}
+
+.hero .text-hero h1 {
+    font-size: 3.5rem;
+    color: var(--marrom-escuro);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.hero .text-hero p {
+    color: rgba(74, 34, 26, 0.9);
+    line-height: 1.75;
+    font-size: 1.15rem;
+    margin-bottom: 35px;
+}
+
+/* ==========================================================================
+   SEÇÃO CARDS DO CARDÁPIO
+   ========================================================================== */
+.cardapio-destaques {
+    padding: 100px 0;
+    background-color: var(--branco-suave);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    color: var(--marrom-escuro);
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    font-size: 1.1rem;
+    color: var(--marrom-medio);
+}
+
+/* Grid Responsivo Inteligente */
+.grid-cardapio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 30px;
+}
+
+/* O Bloco do Card */
+.card-doce {
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--marrom-escuro);
+    box-shadow: 0 10px 30px var(--sombra-suave);
+    border: 1px solid rgba(74, 34, 26, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transicao);
+}
+
+.card-doce:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(74, 34, 26, 0.12);
+    border-color: var(--bege-quente);
+}
+
+/* Wrapper da imagem para efeito zoom */
+.card-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    overflow: hidden;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicao);
+}
+
+.card-doce:hover .card-img-wrapper img {
+    transform: scale(1.06);
+}
+
+/* Etiquetas sobre as imagens*/
+.badge-tag {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: var(--vermelho-terracota);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Informações internas dos cards */
+.card-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-info h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--marrom-escuro);
+    transition: color 0.3s ease;
+}
+
+.card-doce:hover .card-info h3 {
+    color: var(--vermelho-terracota);
+}
+
+.card-info p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--marrom-medio);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.card-link-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--marrom-medio);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease;
+}
+
+.card-link-text i {
+    transition: transform 0.3s ease;
+}
+
+.card-doce:hover .card-link-text {
+    color: var(--vermelho-terracota);
+}
+
+.card-doce:hover .card-link-text i {
+    transform: translateX(5px);
+}
+
+/* ==========================================================================
+   SEÇÃO SOLICITAR ORÇAMENTO
+   ========================================================================== */
+.orcamento-secao {
+    padding: 100px 0;
+    background-color: var(--creme-claro); /* Fundo contrastante sutil para separar as seções */
+}
+
+.orcamento-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(74, 34, 26, 0.05);
+    border: 1px solid rgba(74, 34, 26, 0.02);
+}
+
+.form-orcamento {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-grupo-duplo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-orcamento label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--marrom-escuro);
+}
+
+.form-orcamento input,
+.form-orcamento select,
+.form-orcamento textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid rgba(139, 90, 42, 0.15);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--marrom-escuro);
+    background-color: var(--branco-suave);
+    transition: var(--transicao);
+}
+
+.form-orcamento input:focus,
+.form-orcamento select:focus,
+.form-orcamento textarea:focus {
+    outline: none;
+    border-color: var(--marrom-medio);
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(107, 58, 42, 0.1);
+}
+
+.form-orcamento textarea {
+    resize: vertical; /* Impede o usuário de quebrar o layout horizontalmente */
+}
+
+.form-botao {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.form-botao button {
+    border: none;
+    width: 260px; /* Um pouco mais largo para acomodar o texto */
+}
+
+/* Ajuste Responsivo para o Formulário */
+@media (max-width: 600px) {
+    .orcamento-wrapper {
+        padding: 25px 20px;
+    }
+    
+    .form-grupo-duplo {
+        grid-template-columns: 1fr; /* No mobile, os campos duplos ficam empilhados verticalmente */
+        gap: 24px;
+    }
+}
+
+/* ==========================================================================
+   ESTILO DO FOOTER (RODAPÉ)
+   ========================================================================== */
+.footer-principal {
+    background-color: var(--marrom-escuro);
+    color: var(--branco-suave);
+    padding: 70px 0 0 0;
+    border-top: 3px solid var(--bege-quente);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-col h3 {
+    font-size: 1.25rem;
+    color: var(--creme-claro);
+    margin-bottom: 25px;
+    position: relative;
+    font-weight: 600;
+}
+
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 35px;
+    height: 2px;
+    background-color: var(--vermelho-terracota);
+}
+
+.brand-info .footer-logo {
+    height: 70px;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+.brand-info p {
+    line-height: 1.7;
+    font-size: 0.95rem;
+    color: rgba(255, 248, 240, 0.8);
+}
+
+.links-uteis ul {
+    list-style: none;
+}
+
+.links-uteis li {
+    margin-bottom: 12px;
+}
+
+.links-uteis a {
+    color: rgba(255, 248, 240, 0.8);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: var(--transicao);
+    display: inline-block;
+}
+
+.links-uteis a:hover {
+    color: var(--bege-quente);
+    transform: translateX(5px);
+}
+
+.horario-atendimento p {
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: rgba(255, 248, 240, 0.8);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.horario-atendimento i {
+    color: var(--bege-quente);
+}
+
+.redes-sociais p {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    color: rgba(255, 248, 240, 0.8);
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background-color: rgba(255, 248, 240, 0.08);
+    color: var(--branco-suave);
+    border-radius: 50%;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: var(--transicao);
+    border: 1px solid rgba(255, 248, 240, 0.1);
+}
+
+.social-icons a:hover {
+    background-color: var(--vermelho-terracota);
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(201, 75, 60, 0.4);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(245, 230, 200, 0.1);
+    padding: 25px 0;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.footer-bottom-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: rgba(255, 248, 240, 0.6);
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVIDADE SUBSTANCIAL)
+   ========================================================================== */
+
+/* Notebooks e Desktops Pequenos (Até 1024px) */
+@media (max-width: 1024px) {
+    .hero .text-hero h1 {
+        font-size: 3rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* Quebra o rodapé em 2 colunas */
+        gap: 40px;
+    }
+}
+
+/* Tablets e Celulares deitados (Até 768px) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Revela o botão hambúrguer */
+    }
+
+    /* Transforma o menu horizontal em gaveta vertical oculta */
+    header nav.menu-desktop {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--marrom-escuro);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+
+    /* Classe ativada via JavaScript */
+    header nav.menu-desktop.mobile-open {
+        max-height: 300px;
+        padding: 20px 0;
+        border-bottom: 2px solid var(--bege-quente);
+    }
+
+    header nav.menu-desktop ul {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    /* Modifica o Hero de Linha para Coluna */
+    .hero > .container {
+        flex-direction: column-reverse; /* Foto acima e texto abaixo no mobile */
+        text-align: center;
+        gap: 35px;
+    }
+
+    .hero {
+        padding-top: 120px;
+        min-height: auto;
+    }
+
+    .hero .img-hero img {
+        width: 300px;
+    }
+
+    .hero .text-hero h1 {
+        font-size: 2.6rem;
+    }
+}
+
+/* Celulares (Até 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .img-logo {
+        height: 60px;
+    }
+
+    .hero .text-hero h1 {
+        font-size: 2.1rem;
+    }
+
+    .section-title h2 {
+        font-size: 1.8rem;
+    }
+
+    .grid-cardapio {
+        grid-template-columns: 1fr; /* Força 1 card por linha no celular */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr; /* Todo o rodapé vira 1 coluna vertical */
+        text-align: center;
+    }
+
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%); /* Centraliza as linhas decorativas do footer */
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+
+.sobre-pagina{
+    background-color: var(--branco-suave);
+    padding: 120px 0 80px;
+}
+
+.titulo-sobre{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.titulo-sobre h1{
+    font-size: 3rem;
+    color: var(--marrom-escuro);
+}
+
+.titulo-sobre p{
+    color: var(--marrom-medio);
+    margin-top: 12px;
+}
+
+.cards-sobre{
+    display: flex;
+    gap: 32px;
+}
+
+.card-sobre{
+    background-color: var(--creme-claro);
+    padding: 30px;
+    border-radius: 18px;
+    width: 33%;
+    transition: 0.4s;
+}
+
+.card-sobre:hover{
+    transform: translateY(-8px);
+}
+
+.card-sobre h2{
+    color: var(--marrom-escuro);
+    margin-bottom: 12px;
+}
+
+.card-sobre p{
+    color: var(--marrom-medio);
+    line-height: 1.6;
+}
